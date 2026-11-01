@@ -43,4 +43,5 @@ Projectiles: {
 	basicahhprojectile.DisplayName: basicahhprojectile
 	Mush_Spore.DisplayName: Mush_ Spore
 	Star_Catcher_Projectile_Base.DisplayName: Star_ Catcher_ Projectile_ Base
+	Star_Catcher_Projectile_Thrown.DisplayName: Star_ Catcher_ Projectile_ Thrown
 }

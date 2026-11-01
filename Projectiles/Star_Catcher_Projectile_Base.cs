@@ -20,12 +20,13 @@ namespace TheBasicMod.Projectiles
             Projectile.light = 0.5f;
             Projectile.timeLeft = 90; 
             Projectile.tileCollide = true;
+            //Projectile.damage = 0;
             // Projectile.rotation = 10;
         }
 
         public override bool? CanHitNPC(NPC target)
         {
-            return false;
+            return true;
         }
 
         public override void AI()
@@ -45,6 +46,7 @@ namespace TheBasicMod.Projectiles
             {
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, 0f, 0f, ModContent.ProjectileType<Star_Catcher_Projectile_Thrown>(), (int)(Projectile.damage * 0.6f), 0f, Main.myPlayer);
             }
+
                 
             
             

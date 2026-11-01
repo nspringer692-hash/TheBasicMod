@@ -2,6 +2,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using TheBasicMod.Projectiles;
+using Microsoft.Xna.Framework;
+using Terraria.DataStructures;
 
 namespace TheBasicMod.Content.Items.Weapons
 {
@@ -26,5 +28,17 @@ namespace TheBasicMod.Content.Items.Weapons
 			Item.mana = 5;
 			Item.scale = 1.2f;
         }
+
+		public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
+    	{
+        	// Define whatever custom damage you want your projectile to have here (e.g., 40 damage)
+        	int customProjectileDamage = 40; 
+
+        	// Manually spawn the projectile with your custom damage instead of the item's 0 damage
+        	Projectile.NewProjectile(source, position, velocity, type, customProjectileDamage, knockback, player.whoAmI);
+
+        	// Return false so Terraria doesn't also try to spawn a default 0-damage projectile
+        	return false;
+    	}
     }
 }
