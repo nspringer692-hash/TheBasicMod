@@ -18,7 +18,7 @@ namespace TheBasicMod.Projectiles
             Projectile.DamageType = DamageClass.Magic;
             Projectile.penetrate = 3;
             Projectile.light = 0.5f;
-            Projectile.timeLeft = 90; 
+            Projectile.timeLeft = 100; 
             Projectile.tileCollide = true;
             //Projectile.damage = 0;
             // Projectile.rotation = 10;
@@ -26,7 +26,7 @@ namespace TheBasicMod.Projectiles
 
         public override bool? CanHitNPC(NPC target)
         {
-            return true;
+            return false;
         }
 
         public override void AI()
@@ -42,9 +42,14 @@ namespace TheBasicMod.Projectiles
             Projectile.velocity.Y *= 0.92f;
             Projectile.rotation *= 0.92f;
 
-            if (Projectile.ai[0] == 60)
+            if (Projectile.ai[0] >= 60 && Projectile.ai[0] % 20 == 0)
             {
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, 0f, 0f, ModContent.ProjectileType<Star_Catcher_Projectile_Thrown>(), (int)(Projectile.damage * 0.6f), 0f, Main.myPlayer);
+                
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, 0f, 0f, ModContent.ProjectileType<Star_Catcher_Projectile_Thrown>(), (int)(Projectile.damage * 0.6f), 0f, Main.myPlayer, ai0: 0, ai1: Projectile.position.X, ai2: Projectile.position.Y);
+            }
+            if (Projectile.ai[0] >= 60 && (Projectile.ai[0] + 5) % 20 == 0)
+            {
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position.X, Projectile.position.Y, 0f, 0f, ModContent.ProjectileType<Star_Catcher_Projectile_Thrown>(), (int)(Projectile.damage * 0.6f), 0f, Main.myPlayer, ai0: 1, ai1: Projectile.position.X, ai2: Projectile.position.Y);
             }
 
                 
