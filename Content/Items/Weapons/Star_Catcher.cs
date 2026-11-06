@@ -11,14 +11,14 @@ namespace TheBasicMod.Content.Items.Weapons
     {
         public override void SetDefaults()
         {
-            Item.damage = 20;
+            Item.damage = 50;
 			Item.DamageType = DamageClass.Magic;
 			Item.width = 40;
 			Item.height = 40;
-			Item.useTime = 60;
-			Item.useAnimation = 60;
+			Item.useTime = 120;
+			Item.useAnimation = 120;
 			Item.useStyle = ItemUseStyleID.Shoot;
-			Item.knockBack = 6;
+			Item.knockBack = 0;
 			Item.value = Item.buyPrice(silver: 1);
 			Item.rare = ItemRarityID.Blue;
 			Item.UseSound = SoundID.Item1;
